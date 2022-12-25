@@ -9,10 +9,17 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedtopology: true,
-});
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedtopology: true,
+  })
+  .then(() => {
+    console.log('conected to mongodb');
+  })
+  .catch((error) => {
+    console.log('mongo error', error);
+  });
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
