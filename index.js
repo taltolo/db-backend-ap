@@ -3,7 +3,6 @@ const networkRouter = require('./routes/networkRoutes');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
 require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -15,7 +14,7 @@ mongoose
     useUnifiedtopology: true,
   })
   .then(() => {
-    console.log('conected to mongodb');
+    console.log('connected to mongodb');
   })
   .catch((error) => {
     console.log('mongo error', error);
