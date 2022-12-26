@@ -7,10 +7,11 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
 console.log(process.env.MONGODB_URI);
+const url = process.env.MONGODB_URI;
 console.log(typeof process.env.MONGODB_URI);
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(process.env.MONGODB_URI, {
+  .connect(url, {
     useNewUrlParser: true,
     useUnifiedtopology: true,
   })
