@@ -12,7 +12,7 @@ console.log(typeof process.env.MONGODB_URI);
 mongoose.Promise = global.Promise;
 async function connectToDB() {
   try {
-    await mongoose.connect('mongodb://127.0.0.1/ArcPlaner', {
+    await mongoose.connect('mongodb://localhost:27017/ArcPlaner', {
       useNewUrlParser: true,
       useUnifiedtopology: true,
     });
