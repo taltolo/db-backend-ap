@@ -10,21 +10,31 @@ console.log(process.env.MONGODB_URI);
 const url = process.env.MONGODB_URI;
 console.log(typeof process.env.MONGODB_URI);
 mongoose.Promise = global.Promise;
-mongoose
-  .connect('mongodb://127.0.0.1/ArcPlaner', {
-    useNewUrlParser: true,
-    useUnifiedtopology: true,
-  })
-  .then(() => {
-    console.log('connected to mongodb');
-  })
-  .catch((error) => {
-    console.log('mongo error', error);
-  });
+async function connectToDB() {
+  try {
+    await mongoose.connect('mongodb://127.0.0.1/ArcPlaner', {
+      useNewUrlParser: true,
+      useUnifiedtopology: true,
+    });
+  } catch (e) {
+    console.error(e);
+  }
+}
+// mongoose
+//   .connect('mongodb://127.0.0.1/ArcPlaner', {
+//     useNewUrlParser: true,
+//     useUnifiedtopology: true,
+//   })
+//   .then(() => {
+//     console.log('connected to mongodb');
+//   })
+//   .catch((error) => {
+//     console.log('mongo error', error);
+//   });
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+connectToDB();
 app.use('/network/db', networkRouter);
 
 app.listen(PORT, () => {
