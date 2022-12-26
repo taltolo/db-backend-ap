@@ -11,7 +11,7 @@ const url = process.env.MONGODB_URI;
 console.log(typeof process.env.MONGODB_URI);
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(url, {
+  .connect('mongodb://127.0.0.1/ArcPlaner', {
     useNewUrlParser: true,
     useUnifiedtopology: true,
   })
