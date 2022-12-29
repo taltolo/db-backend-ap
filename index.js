@@ -24,7 +24,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use('/network/db', networkRouter);
+app.use('/', networkRouter);
 
 app.listen(PORT, () => {
   console.log(`API is listening on port ${PORT}`);
