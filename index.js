@@ -10,7 +10,7 @@ console.log(process.env.MONGODB_URI);
 console.log(typeof process.env.MONGODB_URI);
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(process.env.MONGODB_URI, {
+  .connect("mongodb+srv://"+process.env.USER_NANE_DB+":"+process.env.PASSWORD_DB+"@cluster0.hwv4qbr.mongodb.net/?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedtopology: true,
   })
