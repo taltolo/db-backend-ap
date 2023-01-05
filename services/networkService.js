@@ -24,7 +24,7 @@ const createNewNetwork = (newNetwork) => {
 
 const updateOneNetwork = (networkId, update) => {
   return new Promise(async (resolve, reject) => {
-    const networkForUpdate = Networks.findOneAndUpdate(networkId, update);
+    const networkForUpdate = Networks.findOneAndUpdate({_id:networkId}, update,false);
     resolve(networkForUpdate);
   });
 };
